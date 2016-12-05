@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://tongdao.io/ios/ecommerce/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Track e-commerce activity - TongDao Documentation</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">TongDao Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Android <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../android/quickstart/">Quick Start</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Send messages to your users</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../android/push/getui/">Getui</a>
+</li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../../android/user_profile/">Build your user's profile</a>
+</li>
+                            
+<li >
+    <a href="../../android/ecommerce/">Track e-commerce activity</a>
+</li>
+                            
+<li >
+    <a href="../../android/deeplinks/">Help on deep links</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">iOS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../quickstart/">Quick Start</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Send messages to your users</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../push/getui/">Getui</a>
+</li>
+    </ul>
+  </li>
+                            
+<li >
+    <a href="../user_profile/">Build your user's profile</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Track e-commerce activity</a>
+</li>
+                            
+<li >
+    <a href="../deeplinks/">Help on deep links</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">JS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../js/quickstart/">Quick Start</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">HTTP <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../http/quickstart/">Quick Start</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../user_profile/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../deeplinks/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#track-e-commerce-activity">Track E-Commerce Activity</a></li>
+            <li><a href="#track-a-simple-order">Track a Simple Order</a></li>
+            <li><a href="#track-an-order-with-quantity">Track an Order with Quantity</a></li>
+            <li><a href="#track-an-order-with-multiple-products-and-quantities">Track an Order with Multiple Products and Quantities</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="track-e-commerce-activity">Track E-Commerce Activity</h1>
+<p>TongDao makes it easy to analyze the revenue you make from individual customers. By tracking user e-commerce activity, you can compare revenue across different customer segments and calculate customer lifetime value.</p>
+<h2 id="track-a-simple-order">Track a Simple Order</h2>
+<pre><code class="java">String name = &quot;VIP Package&quot;;
+float price = 10.0f;
+Currency currency = Currency.getInstance(&quot;CNY&quot;);
+
+tongDao.trackPlaceOrder(name, price, currency);
+</code></pre>
+
+<p><br></p>
+<h2 id="track-an-order-with-quantity">Track an Order with Quantity</h2>
+<pre><code class="java">String name = &quot;Month plan&quot;;
+float price = 5.0f;
+Currency currency = Currency.getInstance(&quot;CNY&quot;);
+int quantity = 2;
+
+tongDao.trackPlaceOrder(name, price, currency, quantity);
+</code></pre>
+
+<p><br></p>
+<h2 id="track-an-order-with-multiple-products-and-quantities">Track an Order with Multiple Products and Quantities</h2>
+<pre><code class="java">TdProduct product = new TdProduct();
+product.setName(&quot;E-reader&quot;);
+product.setPrice(100.0f);
+
+TdOrderLine orderLine = new TdOrderLine();
+orderLine.setProduct(product);
+orderLine.setQuantity(2);
+
+ArrayList&lt;TdOrderLine&gt; orderLines = new ArrayList&lt;TdOrderLine&gt;();
+orderLines.add(orderLine);
+
+TdOrder order = new TdOrder();
+order.setCurrency(Currency.getInstance(&quot;CNY&quot;));
+order.setOrderId(&quot;abcdef&quot;);
+order.setTotal(200.0f);
+order.setOrderLines(orderLines);
+tongDao.trackPlaceOrder(order);
+</code></pre>
+
+<!-- 
+<br>
+## Track the View of a Product Category
+
+wzxhzdk:3
+
+<br>
+## Track the View of a Product
+
+wzxhzdk:4
+
+ -->
+
+<!-- 
+<br>
+## Track Adding a Product to the Cart
+
+wzxhzdk:5
+
+<br>
+## Track Removing a Product from a Cart
+
+wzxhzdk:6
+
+ --></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

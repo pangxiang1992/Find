@@ -1,0 +1,24 @@
+site_name: TongDao Documentation
+pages:
+    - Home: index.md
+    - Android: 
+        - Quick Start: android/quickstart.md
+        - Send messages to your users:
+           # - Introduction: android/push/intro.md
+            - Getui: android/push/getui.md
+        - Build your user's profile: android/user_profile.md
+        - Track e-commerce activity: android/ecommerce.md
+        - Help on deep links: android/deeplinks.md
+    - iOS:
+        - Quick Start: ios/quickstart.md
+        - Send messages to your users:
+            - Getui: ios/push/getui.md
+        - Build your user's profile: ios/user_profile.md
+        - Track e-commerce activity: ios/ecommerce.md
+        - Help on deep links: ios/deeplinks.md
+    - JS:
+        - Quick Start: js/quickstart.md
+    - HTTP:
+        - Quick Start: http/quickstart.md
+theme: mkdocs
+site_url: http://tongdao.io

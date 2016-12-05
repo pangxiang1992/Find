@@ -1,0 +1,394 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Tongdao\n\n\nThis describes the resources that make up the official \u540c\u9053 API v2. If you have any problems or requests please contact support.\n\n\nPlease navigate to the section for your platform:\n\n\nAndroid\n\n\n\n\niOS\n\n\n\n\nJavascript (web)\n\n\n\n\nHTTP API", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#tongdao", 
+            "text": "This describes the resources that make up the official \u540c\u9053 API v2. If you have any problems or requests please contact support.  Please navigate to the section for your platform:", 
+            "title": "Tongdao"
+        }, 
+        {
+            "location": "/android/quickstart/", 
+            "text": "Quick Start\n\n\nThe Tongdao API for Android can be configured in two ways. If you use Gradle, see the \"Quick Start - Android Studio\" section. Otherwise, if you use Eclipse, see the \"Quick Start - Eclipse\" section.\n\n\n\n\n\n1. Android Studio Installation\n\n\nIn your \napp module's\n \nbuild.gradle\n, add the following dependency:\n\n\ncompile 'com.tongdao.sdk:sdk:3.2.0-beta@aar'\n\n\n\nYou may now continue to step 3.\n\n\n\n2. Eclipse Installation\n\n\nTo start, download the Tongdao eclipse archive from here:\n\n\n\nTongDao Eclipse SDK\n\n\n\nUnpack it and you will see two projects: demo and sdk. In Eclipse, click \"File\" -\n \"Import\". Choose \"Android\" -\n \"Existing Android Code Into Workspace\"\n\n\n\n\n\nOnce the SDK project is imported, right-click it and click \"Properties\". Then click on the \"Android\" section on the left. Make sure the \nbuild target\n of the SDK is set to \nAndroid 7.1.1 (api 25)\n.\nAlso, make sure that \n\"Is Library\"\n is checked.\n\n\n\nNow, right-click on your own project, click \"Properties\". Go into the \"Android\" section and make sure that \"SDK\" is added as a library.\n\n\n\n3. Code Integration\n\n\n\nNext, you will need an \nApplication\n object. If you already have an application object in your code, skip this part.\n\n\n\nIn your \nAndroidManifest.xml\n add the following:\n\n\nuses-permission android:name=\"android.permission.INTERNET\" /\n\n\nuses-permission android:name=\"android.permission.READ_PHONE_STATE\" /\n\n\nuses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /\n\n\n\napplication\n    ...\n    android:name=\"TongDaoApplication\"\n    ...\n\n\n\n\nYou can replace \nTongDaoApplication\n with whatever other name you'd like.\n\n\n\n\n\nIn your \nTongDaoApplication\n, add the following code:\n\n\npublic class TongDaoApplication{\n\n...\n\n    private TongDao tongDao;\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n    }\n\n    synchronized public TongDao getTongDao() {\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n        return tongDao;\n    }\n\n...\n\n}\n\n\n\nnow you'll be able to access the TongDao SDK through this object in your activities.\n\n\nIf you \nhave the user ID\n of your app's user, you can call our SDK this way instead:\n\n\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);\n\n\n\n\n\n4. Logging in\n\n\nWhen the user logs in, you can call this function:\n\n\ntongDao.login(appContext, userId);\n\n\n\n\n\n5. Logging out\n\n\nLikewise, when the user logs out, you can call this function:\n\n\ntongDao.logout(appContext);\n\n\n\n\n\n\n\n6. Next Steps\n\n\nThat\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.\n\n\n\n\n\n\n\nBuild your user profiles\n\n\nTrack E-Commerce activity\n\n\n\n\n\nHelp on Deep Links", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/android/quickstart/#quick-start", 
+            "text": "The Tongdao API for Android can be configured in two ways. If you use Gradle, see the \"Quick Start - Android Studio\" section. Otherwise, if you use Eclipse, see the \"Quick Start - Eclipse\" section.", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/android/quickstart/#1-android-studio-installation", 
+            "text": "In your  app module's   build.gradle , add the following dependency:  compile 'com.tongdao.sdk:sdk:3.2.0-beta@aar'  You may now continue to step 3.", 
+            "title": "1. Android Studio Installation"
+        }, 
+        {
+            "location": "/android/quickstart/#2-eclipse-installation", 
+            "text": "To start, download the Tongdao eclipse archive from here:", 
+            "title": "2. Eclipse Installation"
+        }, 
+        {
+            "location": "/android/quickstart/#3-code-integration", 
+            "text": "Next, you will need an  Application  object. If you already have an application object in your code, skip this part.  \nIn your  AndroidManifest.xml  add the following:  uses-permission android:name=\"android.permission.INTERNET\" /  uses-permission android:name=\"android.permission.READ_PHONE_STATE\" /  uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /  application\n    ...\n    android:name=\"TongDaoApplication\"\n    ...   You can replace  TongDaoApplication  with whatever other name you'd like.   In your  TongDaoApplication , add the following code:  public class TongDaoApplication{\n\n...\n\n    private TongDao tongDao;\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n    }\n\n    synchronized public TongDao getTongDao() {\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n        return tongDao;\n    }\n\n...\n\n}  now you'll be able to access the TongDao SDK through this object in your activities.  If you  have the user ID  of your app's user, you can call our SDK this way instead:  tongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);", 
+            "title": "3. Code Integration"
+        }, 
+        {
+            "location": "/android/quickstart/#4-logging-in", 
+            "text": "When the user logs in, you can call this function:  tongDao.login(appContext, userId);", 
+            "title": "4. Logging in"
+        }, 
+        {
+            "location": "/android/quickstart/#5-logging-out", 
+            "text": "Likewise, when the user logs out, you can call this function:  tongDao.logout(appContext);", 
+            "title": "5. Logging out"
+        }, 
+        {
+            "location": "/android/quickstart/#6-next-steps", 
+            "text": "That\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.", 
+            "title": "6. Next Steps"
+        }, 
+        {
+            "location": "/android/quickstart/#build-your-user-profiles", 
+            "text": "", 
+            "title": "Build your user profiles"
+        }, 
+        {
+            "location": "/android/quickstart/#track-e-commerce-activity", 
+            "text": "", 
+            "title": "Track E-Commerce activity"
+        }, 
+        {
+            "location": "/android/quickstart/#help-on-deep-links", 
+            "text": "", 
+            "title": "Help on Deep Links"
+        }, 
+        {
+            "location": "/android/push/getui/", 
+            "text": "Quick Start\n\n\nThe Tongdao API for Android can be configured in two ways. If you use Gradle, see the \"Quick Start - Android Studio\" section. Otherwise, if you use Eclipse, see the \"Quick Start - Eclipse\" section.\n\n\n\n\n\n1. Android Studio Installation\n\n\nIn your \napp module's\n \nbuild.gradle\n, add the following dependency:\n\n\ncompile 'com.tongdao.sdk:sdk:3.2.0-beta@aar'\n\n\n\nYou may now continue to step 3.\n\n\n\n2. Eclipse Installation\n\n\nTo start, download the Tongdao eclipse archive from here:\n\n\n\nTongDao Eclipse SDK\n\n\n\nUnpack it and you will see two projects: demo and sdk. In Eclipse, click \"File\" -\n \"Import\". Choose \"Android\" -\n \"Existing Android Code Into Workspace\"\n\n\n\n\n\nOnce the SDK project is imported, right-click it and click \"Properties\". Then click on the \"Android\" section on the left. Make sure the \nbuild target\n of the SDK is set to \nAndroid 7.1.1 (api 25)\n.\nAlso, make sure that \n\"Is Library\"\n is checked.\n\n\n\nNow, right-click on your own project, click \"Properties\". Go into the \"Android\" section and make sure that \"SDK\" is added as a library.\n\n\n\n3. Code Integration\n\n\n\nNext, you will need an \nApplication\n object. If you already have an application object in your code, skip this part.\n\n\n\nIn your \nAndroidManifest.xml\n add the following:\n\n\nuses-permission android:name=\"android.permission.INTERNET\" /\n\n\nuses-permission android:name=\"android.permission.READ_PHONE_STATE\" /\n\n\nuses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /\n\n\n\napplication\n    ...\n    android:name=\"TongDaoApplication\"\n    ...\n\n\n\n\nYou can replace \nTongDaoApplication\n with whatever other name you'd like.\n\n\n\n\n\nIn your \nTongDaoApplication\n, add the following code:\n\n\npublic class TongDaoApplication{\n\n...\n\n    private TongDao tongDao;\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n    }\n\n    synchronized public TongDao getTongDao() {\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n        return tongDao;\n    }\n\n...\n\n}\n\n\n\nnow you'll be able to access the TongDao SDK through this object in your activities.\n\n\nIf you \nhave the user ID\n of your app's user, you can call our SDK this way instead:\n\n\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);\n\n\n\n\n\n4. Logging in\n\n\nWhen the user logs in, you can call this function:\n\n\ntongDao.login(appContext, userId);\n\n\n\n\n\n5. Logging out\n\n\nLikewise, when the user logs out, you can call this function:\n\n\ntongDao.logout(appContext);\n\n\n\n\n\n\n\n6. Next Steps\n\n\nThat\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.\n\n\n\n\n\n\n\nBuild your user profiles\n\n\nTrack E-Commerce activity\n\n\n\n\n\nHelp on Deep Links", 
+            "title": "Getui"
+        }, 
+        {
+            "location": "/android/push/getui/#quick-start", 
+            "text": "The Tongdao API for Android can be configured in two ways. If you use Gradle, see the \"Quick Start - Android Studio\" section. Otherwise, if you use Eclipse, see the \"Quick Start - Eclipse\" section.", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/android/push/getui/#1-android-studio-installation", 
+            "text": "In your  app module's   build.gradle , add the following dependency:  compile 'com.tongdao.sdk:sdk:3.2.0-beta@aar'  You may now continue to step 3.", 
+            "title": "1. Android Studio Installation"
+        }, 
+        {
+            "location": "/android/push/getui/#2-eclipse-installation", 
+            "text": "To start, download the Tongdao eclipse archive from here:", 
+            "title": "2. Eclipse Installation"
+        }, 
+        {
+            "location": "/android/push/getui/#3-code-integration", 
+            "text": "Next, you will need an  Application  object. If you already have an application object in your code, skip this part.  \nIn your  AndroidManifest.xml  add the following:  uses-permission android:name=\"android.permission.INTERNET\" /  uses-permission android:name=\"android.permission.READ_PHONE_STATE\" /  uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /  application\n    ...\n    android:name=\"TongDaoApplication\"\n    ...   You can replace  TongDaoApplication  with whatever other name you'd like.   In your  TongDaoApplication , add the following code:  public class TongDaoApplication{\n\n...\n\n    private TongDao tongDao;\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n    }\n\n    synchronized public TongDao getTongDao() {\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n        return tongDao;\n    }\n\n...\n\n}  now you'll be able to access the TongDao SDK through this object in your activities.  If you  have the user ID  of your app's user, you can call our SDK this way instead:  tongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);", 
+            "title": "3. Code Integration"
+        }, 
+        {
+            "location": "/android/push/getui/#4-logging-in", 
+            "text": "When the user logs in, you can call this function:  tongDao.login(appContext, userId);", 
+            "title": "4. Logging in"
+        }, 
+        {
+            "location": "/android/push/getui/#5-logging-out", 
+            "text": "Likewise, when the user logs out, you can call this function:  tongDao.logout(appContext);", 
+            "title": "5. Logging out"
+        }, 
+        {
+            "location": "/android/push/getui/#6-next-steps", 
+            "text": "That\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.", 
+            "title": "6. Next Steps"
+        }, 
+        {
+            "location": "/android/push/getui/#build-your-user-profiles", 
+            "text": "", 
+            "title": "Build your user profiles"
+        }, 
+        {
+            "location": "/android/push/getui/#track-e-commerce-activity", 
+            "text": "", 
+            "title": "Track E-Commerce activity"
+        }, 
+        {
+            "location": "/android/push/getui/#help-on-deep-links", 
+            "text": "", 
+            "title": "Help on Deep Links"
+        }, 
+        {
+            "location": "/android/user_profile/", 
+            "text": "Build your users profile\n\n\nTongDao help you to understand your users by gathering your users profile and behaviors. TongDao SDK will track basic information about users such as their device, location, sessions, etc\u2026 This is sufficient if you want to use the generic segmentation capability of TongDao, however to use the full segmentation capability and message customization of TongDao you will need to integrate user data points specific to your application. For example :\n\n\n\n\nIdentify\n a user name to include it later in a personalized message\n\n\nTrack\n whenever a user finish a level to detect hardcore gamers\n\n\n\n\nTongDao offers 2 ways to collect user information, track to record events that happens within the application and identify to record attributes of a particular user. The SDK allow you to record both custom and predefined event and attribute. If you wish to record custom ones, please remember to create them in the portal beforehand.\n\n\n\nIdentifying Custom Attributes\n\n\nYou can identify a single attribute:\n\n\ntongDao.identify(\ncoin_balance\n, 4500);\n\n\n\n\n\n\nOr you can identify multiple attributes:\n\n\nHashMap\nString,Object\n values = new HashMap\nString,Object\n();\nvalues.put(\ncoin_balance\n, 4500);\nvalues.put(\nfavourite_color\n, \npurple\n);\ntongDao.identify(values);\n\n\n\n\nNote: The attribute name cannot start with the \"!\" character\n\n\n\n\nIdentifying Custom Events\n\n\nYou can identify an event without properties:\n\n\ntongDao.track(\nevent_name\n);\n\n\n\n\nOr identify an event with properties:\n\n\nHashMap\nString,Object\n values = new HashMap\nString,Object\n();\nvalues.put(\nid\n, 2);\nvalues.put(\ncharacter\n,\ndawrf\n);\ntongDao.track(\nfinish_level\n, values);\n\n\n\n\nNote: The event and parameter name only support A-Z, a-z, 0-9 and \u2018-\u2019, \u2018_\u2019\n\n\nPredefined Attribute Methods\n\n\n\n\n\n\n\n\nMethod\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nidentifyFullName(String fullName)\n\n\nSet user full name\n\n\n\n\n\n\nidentifyFullName(String firstName, String lastName\n\n\nSet user's first and last name\n\n\n\n\n\n\nidentifyUserName(String userName)\n\n\nSet the user's username\n\n\n\n\n\n\nidentifyEmail(String email)\n\n\nSet user email, this attribute is used when doing an email campaign\n\n\n\n\n\n\nidentifyPhone(String phoneNumber)\n\n\nSet user phone number, this attribute is used when doing a sms campaign\n\n\n\n\n\n\nidentifyGender(TdGender gender)\n\n\nSet user gender\n\n\n\n\n\n\nidentifyAge(int age)\n\n\nSet user age\n\n\n\n\n\n\nidentifyAvatar(String url)\n\n\nSet user avatar\n\n\n\n\n\n\nidentifyBirthday(Date date)\n\n\nSet user birthday\n\n\n\n\n\n\nidentifySource(TdSource source)\n\n\nSet App Store and referrers of the application\n\n\n\n\n\n\nidentifyRating(int rating)\n\n\nSet the rating of the app by the user\n\n\n\n\n\n\nidentifyAddress(String address)\n\n\nSet user postal address\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredefined Event Methods\n\n\n\n\n\n\n\n\nMethod\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntrackRegistration()\n\n\nTrack user registration date, use the current time\n\n\n\n\n\n\ntrackRegistration(Date date)\n\n\nTrack user registration date, the date can be passed as a parameter\n\n\n\n\n\n\n\n\nSee the documentation here to track e-commerce activity", 
+            "title": "Build your user's profile"
+        }, 
+        {
+            "location": "/android/user_profile/#build-your-users-profile", 
+            "text": "TongDao help you to understand your users by gathering your users profile and behaviors. TongDao SDK will track basic information about users such as their device, location, sessions, etc\u2026 This is sufficient if you want to use the generic segmentation capability of TongDao, however to use the full segmentation capability and message customization of TongDao you will need to integrate user data points specific to your application. For example :   Identify  a user name to include it later in a personalized message  Track  whenever a user finish a level to detect hardcore gamers   TongDao offers 2 ways to collect user information, track to record events that happens within the application and identify to record attributes of a particular user. The SDK allow you to record both custom and predefined event and attribute. If you wish to record custom ones, please remember to create them in the portal beforehand.", 
+            "title": "Build your users profile"
+        }, 
+        {
+            "location": "/android/user_profile/#identifying-custom-attributes", 
+            "text": "You can identify a single attribute:  tongDao.identify( coin_balance , 4500);   Or you can identify multiple attributes:  HashMap String,Object  values = new HashMap String,Object ();\nvalues.put( coin_balance , 4500);\nvalues.put( favourite_color ,  purple );\ntongDao.identify(values);  Note: The attribute name cannot start with the \"!\" character", 
+            "title": "Identifying Custom Attributes"
+        }, 
+        {
+            "location": "/android/user_profile/#identifying-custom-events", 
+            "text": "You can identify an event without properties:  tongDao.track( event_name );  Or identify an event with properties:  HashMap String,Object  values = new HashMap String,Object ();\nvalues.put( id , 2);\nvalues.put( character , dawrf );\ntongDao.track( finish_level , values);  Note: The event and parameter name only support A-Z, a-z, 0-9 and \u2018-\u2019, \u2018_\u2019", 
+            "title": "Identifying Custom Events"
+        }, 
+        {
+            "location": "/android/user_profile/#predefined-attribute-methods", 
+            "text": "Method  Description      identifyFullName(String fullName)  Set user full name    identifyFullName(String firstName, String lastName  Set user's first and last name    identifyUserName(String userName)  Set the user's username    identifyEmail(String email)  Set user email, this attribute is used when doing an email campaign    identifyPhone(String phoneNumber)  Set user phone number, this attribute is used when doing a sms campaign    identifyGender(TdGender gender)  Set user gender    identifyAge(int age)  Set user age    identifyAvatar(String url)  Set user avatar    identifyBirthday(Date date)  Set user birthday    identifySource(TdSource source)  Set App Store and referrers of the application    identifyRating(int rating)  Set the rating of the app by the user    identifyAddress(String address)  Set user postal address", 
+            "title": "Predefined Attribute Methods"
+        }, 
+        {
+            "location": "/android/user_profile/#predefined-event-methods", 
+            "text": "Method  Description      trackRegistration()  Track user registration date, use the current time    trackRegistration(Date date)  Track user registration date, the date can be passed as a parameter     See the documentation here to track e-commerce activity", 
+            "title": "Predefined Event Methods"
+        }, 
+        {
+            "location": "/android/ecommerce/", 
+            "text": "Track E-Commerce Activity\n\n\nTongDao makes it easy to analyze the revenue you make from individual customers. By tracking user e-commerce activity, you can compare revenue across different customer segments and calculate customer lifetime value.\n\n\nTrack a Simple Order\n\n\nString name = \nVIP Package\n;\nfloat price = 10.0f;\nCurrency currency = Currency.getInstance(\nCNY\n);\n\ntongDao.trackPlaceOrder(name, price, currency);\n\n\n\n\n\n\nTrack an Order with Quantity\n\n\nString name = \nMonth plan\n;\nfloat price = 5.0f;\nCurrency currency = Currency.getInstance(\nCNY\n);\nint quantity = 2;\n\ntongDao.trackPlaceOrder(name, price, currency, quantity);\n\n\n\n\n\n\nTrack an Order with Multiple Products and Quantities\n\n\nTdProduct product = new TdProduct();\nproduct.setName(\nE-reader\n);\nproduct.setPrice(100.0f);\n\nTdOrderLine orderLine = new TdOrderLine();\norderLine.setProduct(product);\norderLine.setQuantity(2);\n\nArrayList\nTdOrderLine\n orderLines = new ArrayList\nTdOrderLine\n();\norderLines.add(orderLine);\n\nTdOrder order = new TdOrder();\norder.setCurrency(Currency.getInstance(\nCNY\n));\norder.setOrderId(\nabcdef\n);\norder.setTotal(200.0f);\norder.setOrderLines(orderLines);\ntongDao.trackPlaceOrder(order);", 
+            "title": "Track e-commerce activity"
+        }, 
+        {
+            "location": "/android/ecommerce/#track-e-commerce-activity", 
+            "text": "TongDao makes it easy to analyze the revenue you make from individual customers. By tracking user e-commerce activity, you can compare revenue across different customer segments and calculate customer lifetime value.", 
+            "title": "Track E-Commerce Activity"
+        }, 
+        {
+            "location": "/android/ecommerce/#track-a-simple-order", 
+            "text": "String name =  VIP Package ;\nfloat price = 10.0f;\nCurrency currency = Currency.getInstance( CNY );\n\ntongDao.trackPlaceOrder(name, price, currency);", 
+            "title": "Track a Simple Order"
+        }, 
+        {
+            "location": "/android/ecommerce/#track-an-order-with-quantity", 
+            "text": "String name =  Month plan ;\nfloat price = 5.0f;\nCurrency currency = Currency.getInstance( CNY );\nint quantity = 2;\n\ntongDao.trackPlaceOrder(name, price, currency, quantity);", 
+            "title": "Track an Order with Quantity"
+        }, 
+        {
+            "location": "/android/ecommerce/#track-an-order-with-multiple-products-and-quantities", 
+            "text": "TdProduct product = new TdProduct();\nproduct.setName( E-reader );\nproduct.setPrice(100.0f);\n\nTdOrderLine orderLine = new TdOrderLine();\norderLine.setProduct(product);\norderLine.setQuantity(2);\n\nArrayList TdOrderLine  orderLines = new ArrayList TdOrderLine ();\norderLines.add(orderLine);\n\nTdOrder order = new TdOrder();\norder.setCurrency(Currency.getInstance( CNY ));\norder.setOrderId( abcdef );\norder.setTotal(200.0f);\norder.setOrderLines(orderLines);\ntongDao.trackPlaceOrder(order);", 
+            "title": "Track an Order with Multiple Products and Quantities"
+        }, 
+        {
+            "location": "/android/deeplinks/", 
+            "text": "Help on Deep Links\n\n\nTo enable users to enter your app from websites or ads, you must add intent filters for the relevant activities in your app manifest. These intent filters allow \ndeep linking\n to the content in any of your activities. For example, the user might click on a deep link to view a page within a shopping app that describes a product offering that the user is interested by.\n\n\n\n\n\nYou need to add an intent-filter directive to any activity you want to open via a deeplink. The property \nandroid:scheme\n should represent your application name and the property \nandroid:host\n should represent the activity to open.\n\n\nactivity android:name=\nAddCartActivity\n\n    \nintent-filter\n\n        \naction android:name=\nandroid.intent.action.VIEW\n /\n\n        \ncategory android:name=\nandroid.intent.category.DEFAULT\n /\n\n        \ncategory android:name=\nandroid.intent.category.BROWSABLE\n /\n\n        \ndata android:scheme=\ntongrd\n android:host=\nadd_cart\n/\n\n    \n/intent-filter\n\n\n/activity\n\n\n\n\n\n\n\nNote: In this example, our activity AddCartActivity can be directly opened from a webpage, using the url : tongrd://add_cart.\n\n\nOnce the activity starts, you can use this code to get information from the deeplink:\n\n\n@Override\npublic void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.main);\n\n    Intent intent = getIntent();\n    String action = intent.getAction();\n    Uri data = intent.getData();\n}\n\n\n\n\n\n\nFor more information, please refer to the \nofficial android documentation\n on deep links.", 
+            "title": "Help on deep links"
+        }, 
+        {
+            "location": "/android/deeplinks/#help-on-deep-links", 
+            "text": "To enable users to enter your app from websites or ads, you must add intent filters for the relevant activities in your app manifest. These intent filters allow  deep linking  to the content in any of your activities. For example, the user might click on a deep link to view a page within a shopping app that describes a product offering that the user is interested by.   You need to add an intent-filter directive to any activity you want to open via a deeplink. The property  android:scheme  should represent your application name and the property  android:host  should represent the activity to open.  activity android:name= AddCartActivity \n     intent-filter \n         action android:name= android.intent.action.VIEW  / \n         category android:name= android.intent.category.DEFAULT  / \n         category android:name= android.intent.category.BROWSABLE  / \n         data android:scheme= tongrd  android:host= add_cart / \n     /intent-filter  /activity    Note: In this example, our activity AddCartActivity can be directly opened from a webpage, using the url : tongrd://add_cart.  Once the activity starts, you can use this code to get information from the deeplink:  @Override\npublic void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.main);\n\n    Intent intent = getIntent();\n    String action = intent.getAction();\n    Uri data = intent.getData();\n}   For more information, please refer to the  official android documentation  on deep links.", 
+            "title": "Help on Deep Links"
+        }, 
+        {
+            "location": "/ios/quickstart/", 
+            "text": "Quick Start\n\n\nThe Tongdao API for iOS can be configured in two ways. If you use Cocopods see the \"Quick Start - Cocopods\" section. Otherwise, if you did not use Cocopods, see the \"Quick Start - Manual installation\" section.\n\n\n\n\n\n1. Cocopods Installation\n\n\nInstalling the SDK via the iOS CocoaPod automates the majority of the installation process for you.\n\n\ninstall this SDK.\nSimply run the following command to get started:\n\n\n $ sudo gem install cocoapods\n\n\n\nNote:\n If you are prompted to overwrite the rake executable please refer to the Getting Started Directions on \nCocoaPods.org\n for further details.\n\n\nNote:\n If you have issues regarding CocoaPods, please refer to the CocoaPods \nTroubleshooting Guide\n.\n\n\n\n\n\nCONSTRUCTING THE PODFILE.\n\n\nNow that you\u2019ve installed the CocoaPods Ruby Gem, you\u2019re going to need to create a file in your Xcode project called Podfile.\n\n\nAdd the following line to your podfile and save it within your Xcode project\n\n\n pod 'TongDaoSDK', '~\n3.2.3'\n\n\n\n\n\n\n\nINSTALLING THE TONGDAO SDK\n\n\nTo install the TongDao SDK Cocoapod, navigate to the directory of your Xcode app project within your terminal and run the following command:\n\n\n pod install\n\n\n\nAt this point you should be able to open the new Xcode project workspace created by CocoaPods.\nYou may now continue to step 3.\n\n\n\n2. Manual installation\n\n\nTo start, download the Tongdao SDK from here:\n\n\n\nTongDao SDK\n\n\n\nUnpack it and you will see two projects: demo and sdk. In Eclipse, click \"File\" -\n \"Import\". Choose \"Android\" -\n \"Existing Android Code Into Workspace\"\n\n\n\n\n\nOnce the SDK project is imported, right-click it and click \"Properties\". Then click on the \"Android\" section on the left. Make sure the \nbuild target\n of the SDK is set to \nAndroid 7.1.1 (api 25)\n.\nAlso, make sure that \n\"Is Library\"\n is checked.\n\n\n\nNow, right-click on your own project, click \"Properties\". Go into the \"Android\" section and make sure that \"SDK\" is added as a library.\n\n\n\n3. Code Integration\n\n\n\nNext, you will need an \nApplication\n object. If you already have an application object in your code, skip this part.\n\n\n\nIn your \nAndroidManifest.xml\n add the following:\n\n\n\n\n\n\n\n\n\n\nYou can replace \nTongDaoApplication\n with whatever other name you'd like.\n\n\n\n\n\nIn your \nTongDaoApplication\n, add the following code:\n\n\npublic class TongDaoApplication{\n\n\n...\n\n\nprivate TongDao tongDao;\n\n\n@Override\npublic void onCreate() {\nsuper.onCreate();\nif (tongDao == null){\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n}\n}\n\n\nsynchronized public TongDao getTongDao() {\nif (tongDao == null){\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n}\nreturn tongDao;\n}\n\n\n...\n\n\n}\n\n\nnow you'll be able to access the TongDao SDK through this object in your activities.\n\n\nIf you \nhave the user ID\n of your app's user, you can call our SDK this way instead:\n\n\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);\n\n\n\n\n4. Logging in\n\n\nWhen the user logs in, you can call this function:\n\n\ntongDao.login(appContext, userId);\n\n\n\n5. Logging out\n\n\nLikewise, when the user logs out, you can call this function:\n\n\ntongDao.logout(appContext);\n\n\n\n\n\n\n6. Next Steps\n\n\nThat\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.\n\n\n\n\n\n\n\nBuild your user profiles\n\n\nTrack E-Commerce activity\n\n\n\n\n\nHelp on Deep Links", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/ios/quickstart/#quick-start", 
+            "text": "The Tongdao API for iOS can be configured in two ways. If you use Cocopods see the \"Quick Start - Cocopods\" section. Otherwise, if you did not use Cocopods, see the \"Quick Start - Manual installation\" section.", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/ios/quickstart/#1-cocopods-installation", 
+            "text": "Installing the SDK via the iOS CocoaPod automates the majority of the installation process for you.  install this SDK.\nSimply run the following command to get started:   $ sudo gem install cocoapods  Note:  If you are prompted to overwrite the rake executable please refer to the Getting Started Directions on  CocoaPods.org  for further details.  Note:  If you have issues regarding CocoaPods, please refer to the CocoaPods  Troubleshooting Guide .", 
+            "title": "1. Cocopods Installation"
+        }, 
+        {
+            "location": "/ios/quickstart/#constructing-the-podfile", 
+            "text": "Now that you\u2019ve installed the CocoaPods Ruby Gem, you\u2019re going to need to create a file in your Xcode project called Podfile.  Add the following line to your podfile and save it within your Xcode project   pod 'TongDaoSDK', '~ 3.2.3'", 
+            "title": "CONSTRUCTING THE PODFILE."
+        }, 
+        {
+            "location": "/ios/quickstart/#installing-the-tongdao-sdk", 
+            "text": "To install the TongDao SDK Cocoapod, navigate to the directory of your Xcode app project within your terminal and run the following command:   pod install  At this point you should be able to open the new Xcode project workspace created by CocoaPods.\nYou may now continue to step 3.", 
+            "title": "INSTALLING THE TONGDAO SDK"
+        }, 
+        {
+            "location": "/ios/quickstart/#2-manual-installation", 
+            "text": "To start, download the Tongdao SDK from here:", 
+            "title": "2. Manual installation"
+        }, 
+        {
+            "location": "/ios/quickstart/#3-code-integration", 
+            "text": "Next, you will need an  Application  object. If you already have an application object in your code, skip this part.  \nIn your  AndroidManifest.xml  add the following:      You can replace  TongDaoApplication  with whatever other name you'd like.   In your  TongDaoApplication , add the following code:  public class TongDaoApplication{  ...  private TongDao tongDao;  @Override\npublic void onCreate() {\nsuper.onCreate();\nif (tongDao == null){\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n}\n}  synchronized public TongDao getTongDao() {\nif (tongDao == null){\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n}\nreturn tongDao;\n}  ...  }  now you'll be able to access the TongDao SDK through this object in your activities.  If you  have the user ID  of your app's user, you can call our SDK this way instead:  tongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);", 
+            "title": "3. Code Integration"
+        }, 
+        {
+            "location": "/ios/quickstart/#4-logging-in", 
+            "text": "When the user logs in, you can call this function:  tongDao.login(appContext, userId);", 
+            "title": "4. Logging in"
+        }, 
+        {
+            "location": "/ios/quickstart/#5-logging-out", 
+            "text": "Likewise, when the user logs out, you can call this function:  tongDao.logout(appContext);", 
+            "title": "5. Logging out"
+        }, 
+        {
+            "location": "/ios/quickstart/#6-next-steps", 
+            "text": "That\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.", 
+            "title": "6. Next Steps"
+        }, 
+        {
+            "location": "/ios/quickstart/#build-your-user-profiles", 
+            "text": "", 
+            "title": "Build your user profiles"
+        }, 
+        {
+            "location": "/ios/quickstart/#track-e-commerce-activity", 
+            "text": "", 
+            "title": "Track E-Commerce activity"
+        }, 
+        {
+            "location": "/ios/quickstart/#help-on-deep-links", 
+            "text": "", 
+            "title": "Help on Deep Links"
+        }, 
+        {
+            "location": "/ios/push/getui/", 
+            "text": "Quick Start\n\n\nThe Tongdao API for Android can be configured in two ways. If you use Gradle, see the \"Quick Start - Android Studio\" section. Otherwise, if you use Eclipse, see the \"Quick Start - Eclipse\" section.\n\n\n\n\n\n1. Android Studio Installation\n\n\nIn your \napp module's\n \nbuild.gradle\n, add the following dependency:\n\n\ncompile 'com.tongdao.sdk:sdk:3.2.0-beta@aar'\n\n\n\nYou may now continue to step 3.\n\n\n\n2. Eclipse Installation\n\n\nTo start, download the Tongdao eclipse archive from here:\n\n\n\nTongDao Eclipse SDK\n\n\n\nUnpack it and you will see two projects: demo and sdk. In Eclipse, click \"File\" -\n \"Import\". Choose \"Android\" -\n \"Existing Android Code Into Workspace\"\n\n\n\n\n\nOnce the SDK project is imported, right-click it and click \"Properties\". Then click on the \"Android\" section on the left. Make sure the \nbuild target\n of the SDK is set to \nAndroid 7.1.1 (api 25)\n.\nAlso, make sure that \n\"Is Library\"\n is checked.\n\n\n\nNow, right-click on your own project, click \"Properties\". Go into the \"Android\" section and make sure that \"SDK\" is added as a library.\n\n\n\n3. Code Integration\n\n\n\nNext, you will need an \nApplication\n object. If you already have an application object in your code, skip this part.\n\n\n\nIn your \nAndroidManifest.xml\n add the following:\n\n\nuses-permission android:name=\"android.permission.INTERNET\" /\n\n\nuses-permission android:name=\"android.permission.READ_PHONE_STATE\" /\n\n\nuses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /\n\n\n\napplication\n    ...\n    android:name=\"TongDaoApplication\"\n    ...\n\n\n\n\nYou can replace \nTongDaoApplication\n with whatever other name you'd like.\n\n\n\n\n\nIn your \nTongDaoApplication\n, add the following code:\n\n\npublic class TongDaoApplication{\n\n...\n\n    private TongDao tongDao;\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n    }\n\n    synchronized public TongDao getTongDao() {\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n        return tongDao;\n    }\n\n...\n\n}\n\n\n\nnow you'll be able to access the TongDao SDK through this object in your activities.\n\n\nIf you \nhave the user ID\n of your app's user, you can call our SDK this way instead:\n\n\ntongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);\n\n\n\n\n\n4. Logging in\n\n\nWhen the user logs in, you can call this function:\n\n\ntongDao.login(appContext, userId);\n\n\n\n\n\n5. Logging out\n\n\nLikewise, when the user logs out, you can call this function:\n\n\ntongDao.logout(appContext);\n\n\n\n\n\n\n\n6. Next Steps\n\n\nThat\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.\n\n\n\n\n\n\n\nBuild your user profiles\n\n\nTrack E-Commerce activity\n\n\n\n\n\nHelp on Deep Links", 
+            "title": "Getui"
+        }, 
+        {
+            "location": "/ios/push/getui/#quick-start", 
+            "text": "The Tongdao API for Android can be configured in two ways. If you use Gradle, see the \"Quick Start - Android Studio\" section. Otherwise, if you use Eclipse, see the \"Quick Start - Eclipse\" section.", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/ios/push/getui/#1-android-studio-installation", 
+            "text": "In your  app module's   build.gradle , add the following dependency:  compile 'com.tongdao.sdk:sdk:3.2.0-beta@aar'  You may now continue to step 3.", 
+            "title": "1. Android Studio Installation"
+        }, 
+        {
+            "location": "/ios/push/getui/#2-eclipse-installation", 
+            "text": "To start, download the Tongdao eclipse archive from here:", 
+            "title": "2. Eclipse Installation"
+        }, 
+        {
+            "location": "/ios/push/getui/#3-code-integration", 
+            "text": "Next, you will need an  Application  object. If you already have an application object in your code, skip this part.  \nIn your  AndroidManifest.xml  add the following:  uses-permission android:name=\"android.permission.INTERNET\" /  uses-permission android:name=\"android.permission.READ_PHONE_STATE\" /  uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" /  application\n    ...\n    android:name=\"TongDaoApplication\"\n    ...   You can replace  TongDaoApplication  with whatever other name you'd like.   In your  TongDaoApplication , add the following code:  public class TongDaoApplication{\n\n...\n\n    private TongDao tongDao;\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n    }\n\n    synchronized public TongDao getTongDao() {\n        if (tongDao == null){\n            tongDao = TongDao.getInstance(this,DataTool.APP_KEY);\n        }\n        return tongDao;\n    }\n\n...\n\n}  now you'll be able to access the TongDao SDK through this object in your activities.  If you  have the user ID  of your app's user, you can call our SDK this way instead:  tongDao = TongDao.getInstance(this,DataTool.APP_KEY,userId);", 
+            "title": "3. Code Integration"
+        }, 
+        {
+            "location": "/ios/push/getui/#4-logging-in", 
+            "text": "When the user logs in, you can call this function:  tongDao.login(appContext, userId);", 
+            "title": "4. Logging in"
+        }, 
+        {
+            "location": "/ios/push/getui/#5-logging-out", 
+            "text": "Likewise, when the user logs out, you can call this function:  tongDao.logout(appContext);", 
+            "title": "5. Logging out"
+        }, 
+        {
+            "location": "/ios/push/getui/#6-next-steps", 
+            "text": "That\u2019s it, TongDao is now integrated in your application ! Take a look at the next steps to unleash TongDao full potential.", 
+            "title": "6. Next Steps"
+        }, 
+        {
+            "location": "/ios/push/getui/#build-your-user-profiles", 
+            "text": "", 
+            "title": "Build your user profiles"
+        }, 
+        {
+            "location": "/ios/push/getui/#track-e-commerce-activity", 
+            "text": "", 
+            "title": "Track E-Commerce activity"
+        }, 
+        {
+            "location": "/ios/push/getui/#help-on-deep-links", 
+            "text": "", 
+            "title": "Help on Deep Links"
+        }, 
+        {
+            "location": "/ios/user_profile/", 
+            "text": "Build your users profile\n\n\nTongDao help you to understand your users by gathering your users profile and behaviors. TongDao SDK will track basic information about users such as their device, location, sessions, etc\u2026 This is sufficient if you want to use the generic segmentation capability of TongDao, however to use the full segmentation capability and message customization of TongDao you will need to integrate user data points specific to your application. For example :\n\n\n\n\nIdentify\n a user name to include it later in a personalized message\n\n\nTrack\n whenever a user finish a level to detect hardcore gamers\n\n\n\n\nTongDao offers 2 ways to collect user information, track to record events that happens within the application and identify to record attributes of a particular user. The SDK allow you to record both custom and predefined event and attribute. If you wish to record custom ones, please remember to create them in the portal beforehand.\n\n\n\nIdentifying Custom Attributes\n\n\nYou can identify a single attribute:\n\n\ntongDao.identify(\ncoin_balance\n, 4500);\n\n\n\n\n\n\nOr you can identify multiple attributes:\n\n\nHashMap\nString,Object\n values = new HashMap\nString,Object\n();\nvalues.put(\ncoin_balance\n, 4500);\nvalues.put(\nfavourite_color\n, \npurple\n);\ntongDao.identify(values);\n\n\n\n\nNote: The attribute name cannot start with the \"!\" character\n\n\n\n\nIdentifying Custom Events\n\n\nYou can identify an event without properties:\n\n\ntongDao.track(\nevent_name\n);\n\n\n\n\nOr identify an event with properties:\n\n\nHashMap\nString,Object\n values = new HashMap\nString,Object\n();\nvalues.put(\nid\n, 2);\nvalues.put(\ncharacter\n,\ndawrf\n);\ntongDao.track(\nfinish_level\n, values);\n\n\n\n\nNote: The event and parameter name only support A-Z, a-z, 0-9 and \u2018-\u2019, \u2018_\u2019\n\n\nPredefined Attribute Methods\n\n\n\n\n\n\n\n\nMethod\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nidentifyFullName(String fullName)\n\n\nSet user full name\n\n\n\n\n\n\nidentifyFullName(String firstName, String lastName\n\n\nSet user's first and last name\n\n\n\n\n\n\nidentifyUserName(String userName)\n\n\nSet the user's username\n\n\n\n\n\n\nidentifyEmail(String email)\n\n\nSet user email, this attribute is used when doing an email campaign\n\n\n\n\n\n\nidentifyPhone(String phoneNumber)\n\n\nSet user phone number, this attribute is used when doing a sms campaign\n\n\n\n\n\n\nidentifyGender(TdGender gender)\n\n\nSet user gender\n\n\n\n\n\n\nidentifyAge(int age)\n\n\nSet user age\n\n\n\n\n\n\nidentifyAvatar(String url)\n\n\nSet user avatar\n\n\n\n\n\n\nidentifyBirthday(Date date)\n\n\nSet user birthday\n\n\n\n\n\n\nidentifySource(TdSource source)\n\n\nSet App Store and referrers of the application\n\n\n\n\n\n\nidentifyRating(int rating)\n\n\nSet the rating of the app by the user\n\n\n\n\n\n\nidentifyAddress(String address)\n\n\nSet user postal address\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredefined Event Methods\n\n\n\n\n\n\n\n\nMethod\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntrackRegistration()\n\n\nTrack user registration date, use the current time\n\n\n\n\n\n\ntrackRegistration(Date date)\n\n\nTrack user registration date, the date can be passed as a parameter\n\n\n\n\n\n\n\n\nSee the documentation here to track e-commerce activity", 
+            "title": "Build your user's profile"
+        }, 
+        {
+            "location": "/ios/user_profile/#build-your-users-profile", 
+            "text": "TongDao help you to understand your users by gathering your users profile and behaviors. TongDao SDK will track basic information about users such as their device, location, sessions, etc\u2026 This is sufficient if you want to use the generic segmentation capability of TongDao, however to use the full segmentation capability and message customization of TongDao you will need to integrate user data points specific to your application. For example :   Identify  a user name to include it later in a personalized message  Track  whenever a user finish a level to detect hardcore gamers   TongDao offers 2 ways to collect user information, track to record events that happens within the application and identify to record attributes of a particular user. The SDK allow you to record both custom and predefined event and attribute. If you wish to record custom ones, please remember to create them in the portal beforehand.", 
+            "title": "Build your users profile"
+        }, 
+        {
+            "location": "/ios/user_profile/#identifying-custom-attributes", 
+            "text": "You can identify a single attribute:  tongDao.identify( coin_balance , 4500);   Or you can identify multiple attributes:  HashMap String,Object  values = new HashMap String,Object ();\nvalues.put( coin_balance , 4500);\nvalues.put( favourite_color ,  purple );\ntongDao.identify(values);  Note: The attribute name cannot start with the \"!\" character", 
+            "title": "Identifying Custom Attributes"
+        }, 
+        {
+            "location": "/ios/user_profile/#identifying-custom-events", 
+            "text": "You can identify an event without properties:  tongDao.track( event_name );  Or identify an event with properties:  HashMap String,Object  values = new HashMap String,Object ();\nvalues.put( id , 2);\nvalues.put( character , dawrf );\ntongDao.track( finish_level , values);  Note: The event and parameter name only support A-Z, a-z, 0-9 and \u2018-\u2019, \u2018_\u2019", 
+            "title": "Identifying Custom Events"
+        }, 
+        {
+            "location": "/ios/user_profile/#predefined-attribute-methods", 
+            "text": "Method  Description      identifyFullName(String fullName)  Set user full name    identifyFullName(String firstName, String lastName  Set user's first and last name    identifyUserName(String userName)  Set the user's username    identifyEmail(String email)  Set user email, this attribute is used when doing an email campaign    identifyPhone(String phoneNumber)  Set user phone number, this attribute is used when doing a sms campaign    identifyGender(TdGender gender)  Set user gender    identifyAge(int age)  Set user age    identifyAvatar(String url)  Set user avatar    identifyBirthday(Date date)  Set user birthday    identifySource(TdSource source)  Set App Store and referrers of the application    identifyRating(int rating)  Set the rating of the app by the user    identifyAddress(String address)  Set user postal address", 
+            "title": "Predefined Attribute Methods"
+        }, 
+        {
+            "location": "/ios/user_profile/#predefined-event-methods", 
+            "text": "Method  Description      trackRegistration()  Track user registration date, use the current time    trackRegistration(Date date)  Track user registration date, the date can be passed as a parameter     See the documentation here to track e-commerce activity", 
+            "title": "Predefined Event Methods"
+        }, 
+        {
+            "location": "/ios/ecommerce/", 
+            "text": "Track E-Commerce Activity\n\n\nTongDao makes it easy to analyze the revenue you make from individual customers. By tracking user e-commerce activity, you can compare revenue across different customer segments and calculate customer lifetime value.\n\n\nTrack a Simple Order\n\n\nString name = \nVIP Package\n;\nfloat price = 10.0f;\nCurrency currency = Currency.getInstance(\nCNY\n);\n\ntongDao.trackPlaceOrder(name, price, currency);\n\n\n\n\n\n\nTrack an Order with Quantity\n\n\nString name = \nMonth plan\n;\nfloat price = 5.0f;\nCurrency currency = Currency.getInstance(\nCNY\n);\nint quantity = 2;\n\ntongDao.trackPlaceOrder(name, price, currency, quantity);\n\n\n\n\n\n\nTrack an Order with Multiple Products and Quantities\n\n\nTdProduct product = new TdProduct();\nproduct.setName(\nE-reader\n);\nproduct.setPrice(100.0f);\n\nTdOrderLine orderLine = new TdOrderLine();\norderLine.setProduct(product);\norderLine.setQuantity(2);\n\nArrayList\nTdOrderLine\n orderLines = new ArrayList\nTdOrderLine\n();\norderLines.add(orderLine);\n\nTdOrder order = new TdOrder();\norder.setCurrency(Currency.getInstance(\nCNY\n));\norder.setOrderId(\nabcdef\n);\norder.setTotal(200.0f);\norder.setOrderLines(orderLines);\ntongDao.trackPlaceOrder(order);", 
+            "title": "Track e-commerce activity"
+        }, 
+        {
+            "location": "/ios/ecommerce/#track-e-commerce-activity", 
+            "text": "TongDao makes it easy to analyze the revenue you make from individual customers. By tracking user e-commerce activity, you can compare revenue across different customer segments and calculate customer lifetime value.", 
+            "title": "Track E-Commerce Activity"
+        }, 
+        {
+            "location": "/ios/ecommerce/#track-a-simple-order", 
+            "text": "String name =  VIP Package ;\nfloat price = 10.0f;\nCurrency currency = Currency.getInstance( CNY );\n\ntongDao.trackPlaceOrder(name, price, currency);", 
+            "title": "Track a Simple Order"
+        }, 
+        {
+            "location": "/ios/ecommerce/#track-an-order-with-quantity", 
+            "text": "String name =  Month plan ;\nfloat price = 5.0f;\nCurrency currency = Currency.getInstance( CNY );\nint quantity = 2;\n\ntongDao.trackPlaceOrder(name, price, currency, quantity);", 
+            "title": "Track an Order with Quantity"
+        }, 
+        {
+            "location": "/ios/ecommerce/#track-an-order-with-multiple-products-and-quantities", 
+            "text": "TdProduct product = new TdProduct();\nproduct.setName( E-reader );\nproduct.setPrice(100.0f);\n\nTdOrderLine orderLine = new TdOrderLine();\norderLine.setProduct(product);\norderLine.setQuantity(2);\n\nArrayList TdOrderLine  orderLines = new ArrayList TdOrderLine ();\norderLines.add(orderLine);\n\nTdOrder order = new TdOrder();\norder.setCurrency(Currency.getInstance( CNY ));\norder.setOrderId( abcdef );\norder.setTotal(200.0f);\norder.setOrderLines(orderLines);\ntongDao.trackPlaceOrder(order);", 
+            "title": "Track an Order with Multiple Products and Quantities"
+        }, 
+        {
+            "location": "/ios/deeplinks/", 
+            "text": "Help on Deep Links\n\n\nTo enable users to enter your app from websites or ads, you must add intent filters for the relevant activities in your app manifest. These intent filters allow \ndeep linking\n to the content in any of your activities. For example, the user might click on a deep link to view a page within a shopping app that describes a product offering that the user is interested by.\n\n\n\n\n\nYou need to add an intent-filter directive to any activity you want to open via a deeplink. The property \nandroid:scheme\n should represent your application name and the property \nandroid:host\n should represent the activity to open.\n\n\nactivity android:name=\nAddCartActivity\n\n    \nintent-filter\n\n        \naction android:name=\nandroid.intent.action.VIEW\n /\n\n        \ncategory android:name=\nandroid.intent.category.DEFAULT\n /\n\n        \ncategory android:name=\nandroid.intent.category.BROWSABLE\n /\n\n        \ndata android:scheme=\ntongrd\n android:host=\nadd_cart\n/\n\n    \n/intent-filter\n\n\n/activity\n\n\n\n\n\n\n\nNote: In this example, our activity AddCartActivity can be directly opened from a webpage, using the url : tongrd://add_cart.\n\n\nOnce the activity starts, you can use this code to get information from the deeplink:\n\n\n@Override\npublic void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.main);\n\n    Intent intent = getIntent();\n    String action = intent.getAction();\n    Uri data = intent.getData();\n}\n\n\n\n\n\n\nFor more information, please refer to the \nofficial android documentation\n on deep links.", 
+            "title": "Help on deep links"
+        }, 
+        {
+            "location": "/ios/deeplinks/#help-on-deep-links", 
+            "text": "To enable users to enter your app from websites or ads, you must add intent filters for the relevant activities in your app manifest. These intent filters allow  deep linking  to the content in any of your activities. For example, the user might click on a deep link to view a page within a shopping app that describes a product offering that the user is interested by.   You need to add an intent-filter directive to any activity you want to open via a deeplink. The property  android:scheme  should represent your application name and the property  android:host  should represent the activity to open.  activity android:name= AddCartActivity \n     intent-filter \n         action android:name= android.intent.action.VIEW  / \n         category android:name= android.intent.category.DEFAULT  / \n         category android:name= android.intent.category.BROWSABLE  / \n         data android:scheme= tongrd  android:host= add_cart / \n     /intent-filter  /activity    Note: In this example, our activity AddCartActivity can be directly opened from a webpage, using the url : tongrd://add_cart.  Once the activity starts, you can use this code to get information from the deeplink:  @Override\npublic void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.main);\n\n    Intent intent = getIntent();\n    String action = intent.getAction();\n    Uri data = intent.getData();\n}   For more information, please refer to the  official android documentation  on deep links.", 
+            "title": "Help on Deep Links"
+        }, 
+        {
+            "location": "/js/quickstart/", 
+            "text": "To be added", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/js/quickstart/#to-be-added", 
+            "text": "", 
+            "title": "To be added"
+        }, 
+        {
+            "location": "/http/quickstart/", 
+            "text": "To be added", 
+            "title": "Quick Start"
+        }, 
+        {
+            "location": "/http/quickstart/#to-be-added", 
+            "text": "", 
+            "title": "To be added"
+        }
+    ]
+}
